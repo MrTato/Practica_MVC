@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Practica_MVC.Models.EquipoCLS>
+
+@{
+    ViewBag.Title = "Modelo de Equipos";
+}
+
+<h2>Modelo de Equipos</h2>
+
+<table class="table table-dark text-center">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Equipo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Tipo_equipo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_equipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+
+    </tr>
+}
+
+</table>

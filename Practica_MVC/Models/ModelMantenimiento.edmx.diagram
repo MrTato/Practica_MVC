@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="MANTENIMIENTOModel.Tipo_Equipo" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="MANTENIMIENTOModel.FK__Equipo__id_marca__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="MANTENIMIENTOModel.FK__Equipo__id_tipo___440B1D61" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MANTENIMIENTOModel.Empleado" Width="1.5" PointX="3.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,6 +137,7 @@
     <Compile Include="Models\Empleado.cs">
       <DependentUpon>ModelMantenimiento.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmpleadoCLS.cs" />
     <Compile Include="Models\Equipo.cs">
       <DependentUpon>ModelMantenimiento.tt</DependentUpon>
     </Compile>
@@ -217,6 +219,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Equipo\Index.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

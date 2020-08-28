@@ -28,5 +28,6 @@ namespace Practica_MVC.Models
         public virtual DbSet<Equipo> Equipo { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Tipo_Equipo> Tipo_Equipo { get; set; }
+        public virtual DbSet<Empleado> Empleado { get; set; }
     }
 }

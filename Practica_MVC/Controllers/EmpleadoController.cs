@@ -14,7 +14,8 @@ namespace Practica_MVC.Controllers
         {
             using (var database = new MANTENIMIENTOEntities())
             {
-                listaEmpleado = (from E in database.Empleado
+                
+                listaEmpleado = (from E in database.tabla_Empleado()
                                  select new EmpleadoCLS
                                  {
                                      id_empleado = E.id_empleado,

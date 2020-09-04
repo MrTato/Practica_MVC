@@ -14,7 +14,7 @@ namespace Practica_MVC.Controllers
         {
             using (var db = new MANTENIMIENTOEntities())
             {
-                listaEquipo = (from e in db.Equipo
+                /*listaEquipo = (from e in db.Equipo
                                join t in db.Tipo_Equipo on e.id_tipo_equipo equals t.id_tipo_equipo
                                join m in db.Marca on e.id_marca equals m.id_marca
                                select new EquipoCLS
@@ -22,6 +22,13 @@ namespace Practica_MVC.Controllers
                                    Equipo = e.equipo1,
                                    Tipo_equipo = t.tipo_equipo1,
                                    Marca = m.marca1
+                               }).ToList();*/
+                listaEquipo = (from e in db.Tabla_Equipo()
+                               select new EquipoCLS
+                               {
+                                   Equipo = e.equipo,
+                                   Tipo_equipo = e.tipo_equipo,
+                                   Marca = e.marca
                                }).ToList();
             }
 

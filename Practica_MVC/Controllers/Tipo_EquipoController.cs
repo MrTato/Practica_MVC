@@ -16,10 +16,10 @@ namespace Practica_MVC.Controllers
 
             using (var bd = new MANTENIMIENTOEntities())
             {
-                ListaTipoEquipo = (from E in bd.Tipo_Equipo
+                ListaTipoEquipo = (from E in bd.tabla_Tipo_Equipo()
                                    select new Tipo_EquipoCLS
                                    {
-                                       tipo_equipo = E.tipo_equipo1,
+                                       tipo_equipo = E.tipo_equipo,
                                        medida = E.medida
                                    }).ToList();
 

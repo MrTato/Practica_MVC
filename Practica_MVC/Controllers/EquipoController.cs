@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,29 +12,33 @@ namespace Practica_MVC.Controllers
     {
         // GET: Equipo
         List<EquipoCLS> listaEquipo = null;
+        String connectionString = "Data Source=.;Initial Catalog=MANTENIMIENTO;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         public ActionResult Index()
         {
-            using (var db = new MANTENIMIENTOEntities())
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                /*listaEquipo = (from e in db.Equipo
-                               join t in db.Tipo_Equipo on e.id_tipo_equipo equals t.id_tipo_equipo
-                               join m in db.Marca on e.id_marca equals m.id_marca
-                               select new EquipoCLS
-                               {
-                                   Equipo = e.equipo1,
-                                   Tipo_equipo = t.tipo_equipo1,
-                                   Marca = m.marca1
-                               }).ToList();*/
-                listaEquipo = (from e in db.Tabla_Equipo()
-                               select new EquipoCLS
-                               {
-                                   Equipo = e.equipo,
-                                   Tipo_equipo = e.tipo_equipo,
-                                   Marca = e.marca
-                               }).ToList();
-            }
+                DataTable dt = new DataTable();
+                listaEquipo = new List<EquipoCLS>();
 
-            return View(listaEquipo);
+                SqlCommand cmd = new SqlCommand("dbo.tabla_Equipo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    EquipoCLS equipo = new EquipoCLS();
+
+                    equipo.Equipo = dr["equipo"].ToString();
+                    equipo.Marca = dr["marca"].ToString();
+                    equipo.Tipo_equipo = dr["tipo_Equipo"].ToString();
+
+                    listaEquipo.Add(equipo);
+                }
+
+                return View(listaEquipo);
+            }
         }
     }
 }
